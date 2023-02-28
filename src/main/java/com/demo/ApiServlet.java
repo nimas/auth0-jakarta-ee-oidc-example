@@ -18,7 +18,7 @@ public class ApiServlet extends HttpServlet {
         IdToken idToken = (IdToken) request.getAttribute("idToken");
         response.setContentType("text/plain");
         response.getWriter().println("Welcome, " + idToken.email);
-        response.getWriter().println("accessToken claims:" + jwt.getClaims());
-        response.getWriter().println("idToken claims:" + idToken.toString());
+        response.getWriter().println("accessToken claims: " + jwt.getClaims());
+        response.getWriter().println("idToken claims: " + idToken.toString());
     }
 }

@@ -80,9 +80,9 @@ public class JwtFilter implements Filter {
 
                 HttpClient client = HttpClient.newHttpClient();
                 HttpRequest requestIdToken = HttpRequest.newBuilder(
-                                URI.create(userinfoUri))
-                        .header("Authorization", "Bearer " + accessToken)
-                        .build();
+                        URI.create(userinfoUri))
+                    .header("Authorization", "Bearer " + accessToken)
+                    .build();
                 HttpResponse<String> responseIdToken = client.send(requestIdToken, HttpResponse.BodyHandlers.ofString());
                 String idTokenString = responseIdToken.body();
                 LOGGER.info("idTokenString: " + idTokenString);
