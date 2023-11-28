@@ -1,5 +1,7 @@
 # Open ID authentication with Jakarta EE 10, Security 3.0, and Auth0
 
+Please read [Use Jakarta EE 10 with OpenID Connect Authentication](https://auth0.com/blog/jakarta-ee-oidc/) to see how this example was created. 
+
 ## Requirements
 
 Before you start, please make sure you have the following prerequisites installed (or install them now).
@@ -109,7 +111,7 @@ This example uses the following open source libraries:
 
 ## Help
 
-Please post any questions as comments on the [blog post](tbd), or visit our [Auth0 Community](https://community.auth0.com/).
+Please post any questions as comments on the [blog post](https://auth0.com/blog/jakarta-ee-oidc/), or visit our [Auth0 Community](https://community.auth0.com/).
 
 ## License
 
