@@ -26,12 +26,9 @@ public class JwtFilter implements Filter {
 
     private static final Logger LOGGER = Logger.getLogger(JwtFilter.class.getName());
 
-    @Inject
-    OidcConfig oidcConfig;
-
     @Override
     public void init(FilterConfig filterConfig) {
-        LOGGER.info("Auth0 jwtVerifier initialized for issuer:" + oidcConfig.getIssuerUri());
+        LOGGER.info("Auth0 jwtVerifier initialized for issuer:" + "https://dev-zpn5pkmxf3rq70py.us.auth0.com/");
     }
 
     @Override
@@ -53,7 +50,7 @@ public class JwtFilter implements Filter {
             // Get the access token from the header
             String accessToken = authHeader.substring(authHeader.indexOf("Bearer ") + 7);
             LOGGER.info("accesstoken: " + accessToken);
-            JwkProvider provider = new UrlJwkProvider(oidcConfig.getIssuerUri());
+            JwkProvider provider = new UrlJwkProvider("https://dev-zpn5pkmxf3rq70py.us.auth0.com/");
             try {
                 // Decode the access token
                 DecodedJWT jwt = JWT.decode(accessToken);
@@ -64,7 +61,7 @@ public class JwtFilter implements Filter {
 
                 // Verify the access token
                 JWTVerifier verifier = JWT.require(algorithm)
-                    .withIssuer(oidcConfig.getIssuerUri())
+                    .withIssuer("https://dev-zpn5pkmxf3rq70py.us.auth0.com/")
                     .build();
 
                 jwt = verifier.verify(accessToken);
@@ -74,7 +71,7 @@ public class JwtFilter implements Filter {
                 request.setAttribute("accessToken", jwt);
 
                 // Get the ID Token
-                String issuerUri = oidcConfig.getIssuerUri();
+                String issuerUri = "https://dev-zpn5pkmxf3rq70py.us.auth0.com/";
                 String userinfoUri = issuerUri + "userinfo";
                 LOGGER.info("userinfoUri: " + userinfoUri);
 

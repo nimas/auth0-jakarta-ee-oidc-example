@@ -15,13 +15,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @OpenIdAuthenticationMechanismDefinition(
-    clientId = "${oidcConfig.clientId}",
-    clientSecret = "${oidcConfig.clientSecret}",
+    clientId = "",
+    clientSecret = "",
     redirectURI = "${baseURL}/callback",
-    providerURI = "${oidcConfig.issuerUri}",
+    providerURI = "https://<uri>/",
     jwksConnectTimeout = 5000,
     jwksReadTimeout = 5000,
-    extraParameters = {"audience=https://dev-0ra99jrp.us.auth0.com/api/v2/"}, // <-- YOUR AUTH0 DOMAIN HERE
+    extraParameters = {"audience=https://dev-zpn5pkmxf3rq70py.us.auth0.com/api/v2/"}, // <-- YOUR AUTH0 DOMAIN HERE
     claimsDefinition = @ClaimsDefinition(callerGroupsClaim = "http://www.jakartaee.demo/roles")
 )
 @WebServlet("/protected")

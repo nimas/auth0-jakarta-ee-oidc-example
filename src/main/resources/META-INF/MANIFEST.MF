@@ -1,1 +1,0 @@
-Dependencies: org.jboss.weld.core, org.jboss.weld.spi, org.jboss.weld.api
